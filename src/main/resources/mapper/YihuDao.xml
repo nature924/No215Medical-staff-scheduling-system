@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.YihuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.YihuEntity" id="yihuMap">
+        <result property="gonghao" column="gonghao"/>
+        <result property="mima" column="mima"/>
+        <result property="xingming" column="xingming"/>
+        <result property="xingbie" column="xingbie"/>
+        <result property="nianling" column="nianling"/>
+        <result property="shoujihao" column="shoujihao"/>
+        <result property="youxiang" column="youxiang"/>
+        <result property="shenfenzheng" column="shenfenzheng"/>
+        <result property="zhaopian" column="zhaopian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.YihuVO" >
+		SELECT * FROM yihu  yihu         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.YihuVO" >
+		SELECT  yihu.* FROM yihu  yihu 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.YihuView" >
+
+		SELECT  yihu.* FROM yihu  yihu 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.YihuView" >
+		SELECT * FROM yihu  yihu <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
